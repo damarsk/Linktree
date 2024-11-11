@@ -21,6 +21,6 @@ If you would like to contribute to this project, please fork the repository and 
 
 ## Contact
 
-If you have any questions or feedback, feel free to reach out to me at [your-email@example.com].
+If you have any questions or feedback, feel free to reach out to me at [marrrsoftware@gmail.com].
 
 Thank you for using my Linktree project!
