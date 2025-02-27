@@ -4,147 +4,331 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Damar Syahada Kusuma</title>
+    <title>Damar Syahada | Links</title>
     
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #f8f9fa;
+            --accent-color: #64ffda;
+            --text-color: #8892b0;
+            --heading-color: #ccd6f6;
+            --dark-navy: #020c1b;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            --cubic-transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-image: url(./background.jpg);
-            background-position: center center;
-            background-repeat: repeat;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -5%;
+            width: 40%;
+            height: 70%;
+            background: radial-gradient(ellipse at center, rgba(100, 255, 218, 0.1), transparent 70%);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: -5%;
+            width: 40%;
+            height: 70%;
+            background: radial-gradient(ellipse at center, rgba(100, 255, 218, 0.1), transparent 70%);
+            z-index: -1;
+            opacity: 0.5;
         }
 
         .container {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1s var(--cubic-transition) forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            position: relative;
+            margin-bottom: 1.5rem;
         }
 
         .logo {
-            width: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            padding-bottom: 10px;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            padding: 3px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
         }
 
-        .fa {
-            color: #f7f7f7;
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            top: -5px;
+            left: -5px;
+            z-index: 1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
         }
 
         h2 {
-            color: #024873;
+            color: var(--heading-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            background: linear-gradient(to right, var(--heading-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            font-weight: 400;
         }
 
         hr {
-            border: 1px solid #8f8f8f;
-            margin: 20px 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            margin: 1.5rem 0;
             width: 80px;
         }
 
+        .links {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .link-item {
+            opacity: 0;
+            animation: fadeIn 0.5s var(--cubic-transition) forwards;
+        }
+
+        .link-item:nth-child(1) { animation-delay: 0.2s; }
+        .link-item:nth-child(2) { animation-delay: 0.4s; }
+        .link-item:nth-child(3) { animation-delay: 0.6s; }
+        .link-item:nth-child(4) { animation-delay: 0.8s; }
+        .link-item:nth-child(5) { animation-delay: 1s; }
+
         .links a {
-            border-radius: 12px;
-            width: 310px;
-            min-width: 100px;
-            color: rgb(60, 55, 55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: var(--light-navy);
+            color: var(--heading-color);
+            text-decoration: none;
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
 
-        .links div:nth-child(odd) a {
-            background-color: #7a99ff;
-            padding: 13px;
-            display: block;
-            text-decoration: none;
-        }
-        
-        .links div:nth-child(odd) a:hover {
-            padding: 13px 15px;
-        }
-        
-        .links div:nth-child(even) a {
-            margin: 10px 0;
-            background-color: #e6addd;
-            padding: 13px;
-            display: block;
-            text-decoration: none;
-        }
-
-        .links div:nth-child(even) a:hover {
-            padding: 13px 15px;
+        .links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+            z-index: -1;
         }
 
         .links a:hover {
-            opacity: 0.8;
+            color: var(--accent-color);
+            transform: translateY(-5px);
         }
 
-        /* Media query untuk layar PC */
-        @media (min-width: 768px) {
+        .links a:hover::before {
+            transform: translateX(100%);
+        }
 
+        .links a i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0;
+            animation: fadeIn 0.5s var(--cubic-transition) 1.2s forwards;
+        }
+
+        .footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media query for desktop screens */
+        @media (min-width: 768px) {
             .logo {
-                width: 175px; /* Sesuaikan ukuran logo (1.5x dari 150px) */
+                width: 150px;
+                height: 150px;
+            }
+
+            .logo-container::after {
+                width: 160px;
+                height: 160px;
             }
 
             h2 {
-                font-size: 1.9rem; /* Perbesar ukuran font heading */
+                font-size: 2.2rem;
             }
 
-            .links div a {
-                width: 410px; /* Perbesar lebar link (1.5x dari 310px) */
-            }
-
-            .links div:nth-child(odd) a {
-                padding: 15px;
-            }
-
-            .links div:nth-child(odd) a:hover {
-                padding: 15px 20px;
-            }
-
-            .links div:nth-child(even) a {
-                padding: 15px;
-            }
-
-            .links div:nth-child(even) a:hover {
-                padding: 15px 20px;
+            .subtitle {
+                font-size: 1.1rem;
             }
 
             hr {
-                width: 120px; /* Perbesar lebar garis horizontal */
+                width: 120px;
+            }
+
+            .links {
+                width: 400px;
+            }
+
+            .links a {
+                padding: 1.2rem;
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img class="logo" src="./profile.jpg" alt="LOGO">
-        <h2>Damar Syahada Kusuma</h2>
-        <hr>
-        <div class="links">
-            <div>
-                <a href="https://github.com/damarsk" target="_blank"><i class="fa fa-github" aria-hidden="true"></i> Github</a>
+        <div class="profile-content">
+            <div class="logo-container">
+                <img class="logo" src="./profile.jpg" alt="Damar Syahada">
             </div>
-            <div>
-                <a href="https://instagram.com/damarsyahada/" target="_blank"><i class="fa fa-instagram"></i> Instagram</a>
+            <h2>Damar Syahada</h2>
+            <p class="subtitle">Software Engineer & Developer</p>
+            <hr>
+            <div class="links">
+                <div class="link-item">
+                    <a href="https://github.com/damarsk" target="_blank">
+                        <i class="fab fa-github" aria-hidden="true"></i> GitHub
+                    </a>
+                </div>
+                <div class="link-item">
+                    <a href="https://instagram.com/damarsyahada/" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </div>
+                <div class="link-item">
+                    <a href="https://www.youtube.com/@damarsyahada" target="_blank">
+                        <i class="fab fa-youtube"></i> YouTube
+                    </a>
+                </div>
+                <div class="link-item">
+                    <a href="https://damar.pw/" target="_blank">
+                        <i class="fas fa-globe"></i> Main Website
+                    </a>
+                </div>
+                <div class="link-item">
+                    <a href="https://github.com/damarsk/kastar" target="_blank">
+                        <i class="fas fa-graduation-cap"></i> School Project
+                    </a>
+                </div>
             </div>
-            <div>
-                <a href="https://www.youtube.com/@damarsyahada" target="_blank"><i class="fa fa-youtube"></i> Youtube</a>
-            </div>
-            <div>
-                <a href="https://damar.pw/" target="_blank"><i class="fa fa-globe"></i> Website Utama</a>
-            </div>
-            <div>
-                <a href="https://skyone-academy.my.id/" target="_blank"><i class="fa fa-bookmark"></i> Projek Sekolah</a>
+            <div class="footer">
+                <p>© 2025 · Built with <i class="fas fa-heart" style="color: var(--accent-color);"></i> by <a href="https://damar.pw/">Damar</a></p>
             </div>
         </div>
     </div>
-    <script src="https://kit.fontawesome.com/46994c6fd7.js" crossorigin="anonymous"></script>
 </body>
 </html>
